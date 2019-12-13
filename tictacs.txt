@@ -1,0 +1,13 @@
+they are thinking that lots of dynamite left means use lots of dynamite
+---> potential tactic: use less dynamite at the start
+        SERIES OF PLAY:
+        p1 saves dynamite
+        p2 thinks high chance of dynamite so uses up lots of water
+        p1 able to win as p2 using less dynamite
+        ????
+
+---> potential tactic 2: use up all of you dynamite and then play water while the opposition uses up theirs
+        SERIES OF PLAY:
+        p1 uses all dynamite quickly
+        p2 sees this so thinks safe to use dynamite
+        as soon as p1 finishes dynamite p1 plays water
