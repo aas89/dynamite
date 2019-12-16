@@ -4,18 +4,20 @@ class Bot {
         let roundNum = gamestate.rounds.length;
         let dynaLeft1 = this.countDyna(gamestate)[0];
         let dynaLeft2 = this.countDyna(gamestate)[1];
-        let sufficentDyna = this.chooseDyna(gamestate, dynaLeft1, dynaLeft2);
+        let sufficentDyna1 = this.chooseDyna1(gamestate, dynaLeft1);
+        let insufficientDyna2 = this.chooseDyna2(gamestate, dynaLeft2)
         console.log("--------");
         console.log(dynaLeft1);
         console.log(dynaLeft2);
+        let randomNum1 = Math.floor(Math.random() * 3);
+        let randomNum2 = Math.floor(Math.random() * 3);
 
-        if (dynaLeft1 > 0) {
+
+        if (dynaLeft1 > 1 && dynaLeft2 < 3) {
             return "D";
-            // } else if (dynaLeft1 > 0 && sufficentDyna == true){
-            //     return "D";
-        } else if (roundNum % 2 == 0) {
+        } else if (randomNum1 == 0) {
             return "R";
-        } else if (roundNum % 3 == 1) {
+        } else if (randomNum1 == 1) {
             return "P";
         } else {
             return "S";
@@ -40,7 +42,7 @@ class Bot {
         return [dynaLeft1, dynaLeft2];
     }
 
-    chooseDyna(gamestate, dynaLeft1, dynaLeft2) {
+    chooseDyna1(gamestate, dynaLeft1) {
         let roundNum = gamestate.rounds.length;
         let approxTotRounds = 2000;
         let dynaPerRound = 100 / 2000;
@@ -51,7 +53,19 @@ class Bot {
         } else {
             return false
         }
-        //randomNum = Math.floor(Math.random() * 3 + 1);
+    }
+
+    chooseDyna2(gamestate, dynaLeft2) {
+        let roundNum = gamestate.rounds.length;
+        let approxTotRounds = 2000;
+        let dynaPerRound = 100 / 2000;
+        let dynaLeft2PerRound = dynaLeft2 / (approxTotRounds - roundNum);
+        console.log(dynaLeft2PerRound);
+        if (dynaLeft2 < 3) {
+            return true
+        } else {
+            return false
+        }
     }
 
 }
@@ -61,7 +75,7 @@ module.exports = new Bot();
 var gamestateTest = {
     rounds: [{
             p1: "R",
-            p2: "R"
+            p2: "D"
         },
         {
             p1: "W",
@@ -71,6 +85,6 @@ var gamestateTest = {
 }
 
 myDynabot = new Bot();
-//myDynabot.makeMove(gamestateTest);
+myDynabot.makeMove(gamestateTest);
 
 //console.log(myDynabot.chooseDyna(gamestateTest, 3, 1));

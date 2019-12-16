@@ -9,27 +9,27 @@ class Bot {
         console.log(dynaLeft2);
         let randomNum = Math.floor(Math.random() * 3);
 
-        if (dynaLeft2 <= 0 && dynaLeft1 > 0){
+        if (dynaLeft2 <= 0 && dynaLeft1 > 0) {
             return "D";
         } else if (randomNum == 0) {
             return "R";
-        } else if (randomNum == 1){
+        } else if (randomNum == 1) {
             return "P";
         } else {
             return "S";
         }
-        
+
     }
 
     countDyna(gamestate) {
         let roundNum = gamestate.rounds.length;
         let dynaUsed1 = 0;
         let dynaUsed2 = 0;
-        for (let r = 0; r<roundNum; r++) {
-            if (gamestate.rounds[r].p1 == "D"){
+        for (let r = 0; r < roundNum; r++) {
+            if (gamestate.rounds[r].p1 == "D") {
                 dynaUsed1 += 1;
             }
-            if (gamestate.rounds[r].p2 == "D"){
+            if (gamestate.rounds[r].p2 == "D") {
                 dynaUsed2 += 1;
             }
         }
@@ -43,15 +43,16 @@ class Bot {
 
 module.exports = new Bot();
 
-var gamestateTest = {rounds: [
-    {
-        p1 : "R",
-        p2 : "R"
-    },
-    {
-        p1 : "W",
-        p2 : "P"
-    },]
+var gamestateTest = {
+    rounds: [{
+            p1: "R",
+            p2: "R"
+        },
+        {
+            p1: "W",
+            p2: "P"
+        },
+    ]
 }
 
 myDynabot = new Bot();

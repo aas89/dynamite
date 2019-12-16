@@ -11,3 +11,12 @@ they are thinking that lots of dynamite left means use lots of dynamite
         p1 uses all dynamite quickly
         p2 sees this so thinks safe to use dynamite
         as soon as p1 finishes dynamite p1 plays water
+
+        STEPS:
+        geoBot:
+            tests whether p2 dynamite is very low
+            if p2 dynamite is very low then uses all its own dynamite
+        extremeBot:
+            if its own dynamite is very low and opponents dynamite is high
+            uses lots of water
+            (extension: check that geobot is behaving as expected else abort)
